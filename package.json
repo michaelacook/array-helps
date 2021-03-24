@@ -1,0 +1,22 @@
+{
+  "name": "array-helper",
+  "version": "1.0.0",
+  "description": "A clone of the popular Lodash library's array methods.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test/index.test.js",
+    "pretty": "prettier --write --no-semi ."
+  },
+  "keywords": [
+    "array",
+    "helper",
+    "utilities"
+  ],
+  "author": "Michael A. Cook",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2",
+    "prettier": "^2.2.1"
+  }
+}
