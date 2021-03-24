@@ -1,5 +1,6 @@
 const { assert } = require("chai")
 const _ = require("../src/index.js")
+const InvalidArgumentError = require("../src/error.js")
 
 describe("_", () => {
   describe(".chunk", () => {
@@ -33,6 +34,12 @@ describe("_", () => {
         assert.typeOf(chunk[0], "number", "is a number")
       })
     })
+
+    it("throws an error if argument is not an array", () => {
+      assert.throw(() => {
+        _.chunk("")
+      }, InvalidArgumentError.message)
+    })
   })
 
   describe(".compact", () => {
@@ -52,6 +59,12 @@ describe("_", () => {
       const expected = [1, "a", "b", "c"]
       const actual = _.compact(input)
       assert.deepEqual(actual, expected)
+    })
+
+    it("throws an error if argument is not an array", () => {
+      assert.throw(() => {
+        _.compact("")
+      }, InvalidArgumentError.message)
     })
   })
 })

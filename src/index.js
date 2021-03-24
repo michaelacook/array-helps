@@ -1,3 +1,5 @@
+const InvalidArgumentError = require("./error.js")
+
 const _ = {
   /**
    * Take an array and divide into a 2D array of chunks of the specified size
@@ -7,6 +9,9 @@ const _ = {
    * @returns {Object|Array} output
    */
   chunk(arr, size) {
+    if (!Array.isArray(arr)) {
+      throw InvalidArgumentError
+    }
     const output = []
     while (arr.length > 0) {
       output.push(arr.splice(0, size))
@@ -16,11 +21,14 @@ const _ = {
 
   /**
    * Remove all falsey values from an array
-   * Removes 0, null, undefined, "", NaN
+   * Removes 0, null, false, undefined, "", NaN
    * @param {Object|Array} arr - input array
    * @returns {Object|array}
    */
   compact(arr) {
+    if (!Array.isArray(arr)) {
+      throw InvalidArgumentError
+    }
     return arr.filter((el) => {
       if (el) {
         return el
