@@ -13,6 +13,20 @@ const _ = {
     }
     return output
   },
+
+  /**
+   * Remove all falsey values from an array
+   * Removes 0, null, undefined, "", NaN
+   * @param {Object|Array} arr - input array
+   * @returns {Object|array}
+   */
+  compact(arr) {
+    return arr.filter((el) => {
+      if (el) {
+        return el
+      }
+    })
+  },
 }
 
 module.exports = _
