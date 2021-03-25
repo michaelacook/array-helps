@@ -35,6 +35,29 @@ const _ = {
       }
     })
   },
+
+  /**
+   * Concatenate a given array and any number of additional elements onto a new array
+   * @param {Object|Array} arr
+   * @param  {...any} args
+   * @returns {Object|Array} output - new array
+   */
+  concat(arr, ...args) {
+    if (!Array.isArray(arr)) {
+      throw InvalidArgumentError
+    }
+    const output = [...arr]
+    args.forEach((arg) => {
+      if (Array.isArray(arg)) {
+        arg.forEach((el) => {
+          output.push(el)
+        })
+      } else {
+        output.push(arg)
+      }
+    })
+    return output
+  },
 }
 
 module.exports = _
