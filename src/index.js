@@ -1,5 +1,9 @@
 const InvalidArgumentError = require("./error.js")
 
+if (!Array.isArray) {
+  require("./isArrayPolyfill.js")()
+}
+
 const _ = {
   /**
    * Take an array and divide into a 2D array of chunks of the specified size
@@ -57,6 +61,25 @@ const _ = {
       }
     })
     return output
+  },
+
+  /**
+   * Creates an array of array values no included in any array passed
+   * @param {Object|Array} arr
+   * @param  {...any} arrays
+   * @returns {Object|Array} output
+   */
+  difference(arr, ...arrays) {
+    if (!Array.isArray(arr)) {
+      throw InvalidArgumentError
+    }
+    return arr.filter((el) => {
+      const filtered = arrays.filter(Array.isArray).flat()
+      if (filtered.includes(el)) {
+        return false
+      }
+      return true
+    })
   },
 }
 
