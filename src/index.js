@@ -1,10 +1,11 @@
 const InvalidArgumentError = require("./error.js")
 
+// add Array.isArray polyfill if node version doesn't support it natively
 if (!Array.isArray) {
   require("./isArrayPolyfill.js")()
 }
 
-const _ = {
+class ArrayHelper {
   /**
    * Take an array and divide into a 2D array of chunks of the specified size
    * If there is any remainder, it will be at the end of the array
@@ -21,7 +22,7 @@ const _ = {
       output.push(arr.splice(0, size))
     }
     return output
-  },
+  }
 
   /**
    * Remove all falsey values from an array
@@ -38,7 +39,7 @@ const _ = {
         return el
       }
     })
-  },
+  }
 
   /**
    * Concatenate a given array and any number of additional elements onto a new array
@@ -61,10 +62,11 @@ const _ = {
       }
     })
     return output
-  },
+  }
 
   /**
-   * Creates an array of array values no included in any array passed
+   * Creates an array of array values not included in any array passed
+   * Non-array types passed for ...arrays are ignored
    * @param {Object|Array} arr
    * @param  {...any} arrays
    * @returns {Object|Array} output
@@ -73,14 +75,32 @@ const _ = {
     if (!Array.isArray(arr)) {
       throw InvalidArgumentError
     }
-    return arr.filter((el) => {
-      const filtered = arrays.filter(Array.isArray).flat()
-      if (filtered.includes(el)) {
-        return false
-      }
-      return true
-    })
-  },
+    const filtered = arrays.filter(Array.isArray).flat()
+    return arr.filter((el) => (filtered.includes(el) ? false : true))
+  }
+
+  /**
+   * Creates an array of array values not included in the other arrays passed as determined by an iteratee callback
+   * Similar to difference but uses an iteratee to determine comparison
+   * @param {Object|Array} arr
+   * @param {Function} iteratee
+   * @param  {...any} arrays
+   * @returns {Object|Array}
+   */
+  differenceBy(arr, iteratee, ...arrays) {
+    if (!Array.isArray(arr)) {
+      throw InvalidArgumentError
+    }
+    if (!arr.length) {
+      return arr
+    }
+    if (!iteratee) {
+      return this.difference(arr, ...arrays)
+    }
+    const filtered = arrays.filter(Array.isArray).flat().map(iteratee)
+    return arr.filter((el) => (filtered.includes(iteratee(el)) ? false : true))
+  }
 }
 
+const _ = new ArrayHelper()
 module.exports = _
