@@ -5,7 +5,7 @@ if (!Array.isArray) {
   require("./isArrayPolyfill.js")()
 }
 
-class ArrayHelper {
+const _ = {
   /**
    * Take an array and divide into a 2D array of chunks of the specified size
    * If there is any remainder, it will be at the end of the array
@@ -22,7 +22,7 @@ class ArrayHelper {
       output.push(arr.splice(0, size))
     }
     return output
-  }
+  },
 
   /**
    * Remove all falsey values from an array
@@ -39,7 +39,7 @@ class ArrayHelper {
         return el
       }
     })
-  }
+  },
 
   /**
    * Concatenate a given array and any number of additional elements onto a new array
@@ -62,7 +62,7 @@ class ArrayHelper {
       }
     })
     return output
-  }
+  },
 
   /**
    * Creates an array of array values not included in any array passed
@@ -77,7 +77,7 @@ class ArrayHelper {
     }
     const filtered = arrays.filter(Array.isArray).flat()
     return arr.filter((el) => (filtered.includes(el) ? false : true))
-  }
+  },
 
   /**
    * Creates an array of array values not included in the other arrays passed as determined by an iteratee callback
@@ -99,8 +99,7 @@ class ArrayHelper {
     }
     const filtered = arrays.filter(Array.isArray).flat().map(iteratee)
     return arr.filter((el) => (filtered.includes(iteratee(el)) ? false : true))
-  }
+  },
 }
 
-const _ = new ArrayHelper()
 module.exports = _
