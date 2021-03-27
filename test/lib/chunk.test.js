@@ -44,7 +44,7 @@ module.exports = () => {
 
     it("returns an array of chunks of length 1 if not passed a size", () => {
       const input = ["a", "b", "c"]
-      const expected =[["a"], ["b"], ["c"]]
+      const expected = [["a"], ["b"], ["c"]]
       const actual = _.chunk(input)
       assert.deepEqual(actual, expected)
     })

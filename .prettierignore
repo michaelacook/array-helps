@@ -1,4 +1,4 @@
 node_modules
 .gitignore
-package.json
-package-lock.json
+*.json
+*.md
