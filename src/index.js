@@ -142,6 +142,22 @@ const _ = {
     }
     return arr.slice(num)
   },
+
+  /**
+   * Drop a specified number of elements from the end of an array
+   * Like .drop but drops elements from the end rather than the start
+   * @param {Object|Array} arr - array to drop element(s) from
+   * @param {Number} num
+   * @returns {Object|Array}
+   */
+  dropRight(arr, num) {
+    if (!Array.isArray(arr)) {
+      throw InvalidArgumentError
+    }
+    const sliceNum = -1 * num
+    const sliced = arr.slice(sliceNum)
+    return arr.filter((el) => !sliced.includes(el))
+  },
 }
 
 module.exports = _
