@@ -100,6 +100,34 @@ const _ = {
     const filtered = arrays.filter(Array.isArray).flat().map(iteratee)
     return arr.filter((el) => (filtered.includes(iteratee(el)) ? false : true))
   },
+
+  /**
+   * Creates a new array representing the difference between two or more arrays based on a comparson callback
+   * Like _.difference and differenceBy but accepts a function to compare each item in the first array against ...arrays
+   * if comparator callback returns true, the first array item is filtered
+   * @param {Object|Array} arr
+   * @param {Function} comparator - used to compare items in each array
+   * @param  {...any} arrays
+   * @returns {Object|Array}
+   */
+  differenceWith(arr, comparator, ...arrays) {
+    if (!Array.isArray(arr)) {
+      throw InvalidArgumentError
+    }
+    let filtered = arrays.filter(Array.isArray).flat()
+    if (!comparator) {
+      return this.difference(arr, ...arrays)
+    }
+    const compare = (el) => {
+      for (let item of filtered) {
+        if (comparator(el, item)) {
+          return true
+        }
+      }
+      return false
+    }
+    return arr.filter((el) => (!compare(el) ? true : false))
+  },
 }
 
 module.exports = _
