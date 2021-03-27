@@ -131,6 +131,7 @@ const _ = {
 
   /**
    * Drop a specified number of elements from an array starting from index 0
+   * Simple wrapper for Array.slice
    * @param {Object|Array} arr - array to drop element(s) from
    * @param {Number} num defaults to 1 - number of elements to drop
    * @returns {Object|Array}
