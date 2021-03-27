@@ -13,7 +13,7 @@ const _ = {
    * @param {Number} size - chunk size
    * @returns {Object|Array} output
    */
-  chunk(arr, size) {
+  chunk(arr, size = 1) {
     if (!Array.isArray(arr)) {
       throw InvalidArgumentError
     }
