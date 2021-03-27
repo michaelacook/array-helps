@@ -128,6 +128,19 @@ const _ = {
     }
     return arr.filter((el) => (!compare(el) ? true : false))
   },
+
+  /**
+   * Drop a specified number of elements from an array starting from index 0
+   * @param {Object|Array} arr - array to drop element(s) from
+   * @param {Number} num defaults to 1 - number of elements to drop
+   * @returns {Object|Array}
+   */
+  drop(arr, num = 1) {
+    if (!Array.isArray(arr)) {
+      throw InvalidArgumentError
+    }
+    return arr.slice(num)
+  },
 }
 
 module.exports = _
