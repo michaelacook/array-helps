@@ -1,6 +1,6 @@
 const { assert } = require("chai")
 const _ = require("../../src/index.js")
-const InvalidArgumentError = require("../../src/error.js")
+const { InvalidArgumentError } = require("../../src/error.js")
 
 module.exports = () => {
   describe(".drop", () => {

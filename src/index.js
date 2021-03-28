@@ -1,4 +1,7 @@
-const InvalidArgumentError = require("./error.js")
+const {
+  InvalidArgumentError,
+  MissingRequiredArgumentError,
+} = require("./error.js")
 
 // add Array.isArray polyfill if node version doesn't support it natively
 if (!Array.isArray) {
@@ -157,6 +160,27 @@ const _ = {
     const sliceNum = -1 * num
     const sliced = arr.slice(sliceNum)
     return arr.filter((el) => !sliced.includes(el))
+  },
+
+  /**
+   * Drop elements from the end of an array until a predicate callback returns false
+   * Returns a new array
+   * @param {Object|Array} arr
+   * @param {Function} predicate
+   * @returns {Object|Array}
+   */
+  dropRightWhile(arr, predicate) {
+    if (!Array.isArray(arr)) {
+      throw InvalidArgumentError
+    }
+    if (!predicate) {
+      throw MissingRequiredArgumentError
+    }
+    const copy = [...arr]
+    while (predicate(copy[copy.length - 1])) {
+      copy.pop()
+    }
+    return copy
   },
 }
 
