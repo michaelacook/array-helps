@@ -165,8 +165,8 @@ const _ = {
   /**
    * Drop elements from the end of an array until a predicate callback returns false
    * Returns a new array
-   * @param {Object|Array} arr
-   * @param {Function} predicate
+   * @param {Object|Array} arr - array from which to drop elements
+   * @param {Function} predicate - takes current element of array and returns a truthy or falsey value
    * @returns {Object|Array}
    */
   dropRightWhile(arr, predicate) {
@@ -179,6 +179,27 @@ const _ = {
     const copy = [...arr]
     while (predicate(copy[copy.length - 1])) {
       copy.pop()
+    }
+    return copy
+  },
+
+  /**
+   * Drops elements from the start of the array until predicate returns falsey
+   * Returns a new array
+   * @param {Object|Array} arr - array from which to drop elements
+   * @param {Function} predicate - takes current element of array and returns a truthy or falsey value
+   * @returns {Object|Array}
+   */
+  dropWhile(arr, predicate) {
+    if (!Array.isArray(arr)) {
+      throw InvalidArgumentError
+    }
+    if (!predicate) {
+      throw MissingRequiredArgumentError
+    }
+    const copy = [...arr]
+    while (predicate(copy[0])) {
+      copy.shift()
     }
     return copy
   },
