@@ -212,7 +212,7 @@ const _ = {
    * @param {any} value
    * @param {Number} start
    * @param {Number} end
-   * @returns
+   * @returns {Object|Array}
    */
   fill(arr, value, start = 0, end = arr.length) {
     if (!Array.isArray(arr)) {
