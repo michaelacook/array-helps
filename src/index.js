@@ -203,6 +203,20 @@ const _ = {
     }
     return copy
   },
+
+  fill(arr, value, start, end = arr.length) {
+    if (!Array.isArray(arr)) {
+      throw InvalidArgumentError
+    }
+    if (value === undefined) {
+      throw MissingRequiredArgumentError
+    }
+    const copy = [...arr]
+    for (let i = start; i < end; i++) {
+      copy[i] = value
+    }
+    return copy
+  },
 }
 
 module.exports = _
