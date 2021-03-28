@@ -19,7 +19,6 @@ module.exports = () => {
       assert.deepEqual(actual, expected)
     })
 
-    // failing
     it("fills a single index with a given value", () => {
       const inputArr = [1, 2, 3]
       const value = false
@@ -41,6 +40,14 @@ module.exports = () => {
       const value = "a"
       const expected = ["a", "a", "a"]
       const actual = _.fill(inputArr, value, 0)
+      assert.deepEqual(actual, expected)
+    })
+
+    it("starts filling from index 0 if start is omitted", () => {
+      const inputArr = Array(3)
+      const value = null
+      const expected = [null, null, null]
+      const actual = _.fill(inputArr, value)
       assert.deepEqual(actual, expected)
     })
 

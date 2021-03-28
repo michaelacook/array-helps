@@ -204,7 +204,17 @@ const _ = {
     return copy
   },
 
-  fill(arr, value, start, end = arr.length) {
+  /**
+   * Fill an array with a given value from a specified start to finish
+   * If start is omitted, defaults to 0
+   * If end is omitted, defaults to arr.length
+   * @param {Object|Array} arr
+   * @param {any} value
+   * @param {Number} start
+   * @param {Number} end
+   * @returns
+   */
+  fill(arr, value, start = 0, end = arr.length) {
     if (!Array.isArray(arr)) {
       throw InvalidArgumentError
     }
