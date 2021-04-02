@@ -1,0 +1,87 @@
+/* Custom styles */
+
+html,
+body {
+  overflow: hidden;
+}
+
+body {
+  height: 100% !important;
+}
+
+pre {
+  padding: 0 1em !important;
+  border-radius: 4px !important;
+  margin: 20px 0 20px 0 !important;
+}
+
+section::before {
+  display: block !important;
+  content: " " !important;
+  margin-top: -285px !important;
+  height: 285px !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.main {
+  padding-bottom: 50px !important;
+}
+
+.full-height {
+  height: 100vh;
+}
+
+.shadow-small {
+  -webkit-box-shadow: 3px 3px 5px 1px #ccc;
+  -moz-box-shadow: 3px 3px 5px 1px #ccc;
+  box-shadow: 3px 3px 5px 1px #ccc;
+}
+
+.shadow-medium {
+  -webkit-box-shadow: 3px 3px 5px 3px #ccc;
+  -moz-box-shadow: 3px 3px 5px 3px #ccc;
+  box-shadow: 3px 3px 5px 3px #ccc;
+}
+
+.shadow-large {
+  -webkit-box-shadow: 3px 3px 5px 5px #ccc;
+  -moz-box-shadow: 3px 3px 5px 5px #ccc;
+  box-shadow: 3px 3px 5px 5px #ccc;
+}
+
+/* For full-size code blocks */
+.codeblock-large {
+  width: 100%;
+  padding: 0 !important;
+}
+
+/* For terminal commands */
+.codeblock-inline {
+  display: inline-block !important;
+  margin: 20px 0px !important;
+  padding: 15px !important;
+}
+
+/* For terminal commands full width */
+.codeblock-inline-large {
+  display: inline-block !important;
+  width: 100% !important;
+  margin: 20px 0px !important;
+  padding: 15px !important;
+}
+
+/* For md backtick-like style */
+.codeblock-inline-small {
+  display: inline;
+  font-family: monospace, monospace !important;
+  padding: 5px !important;
+  background-color: #f7f7f7 !important;
+  border-radius: 3%;
+  width: auto !important;
+}
+
+/* Applies to each section meant to scroll independently */
+.independent-scroll {
+  overflow: auto;
+}

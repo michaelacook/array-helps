@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Array Helper</title>
+    <link rel="icon" href="assets/images/array.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/prism.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+  </head>
+  <body class="has-navbar-fixed-top">
+    <!-- Navbar -->
+    <nav class="navbar is-fixed-top shadow-small" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item">
+          <img src="assets/images/array.png">
+        </a>
+      </div>
+    
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="columns full-height main">
+      <!-- Side navigation -->
+      <div class="column is-one-fifth has-background-light independent-scroll">
+        <aside class="menu ml-5 mt-4">
+          <p class="menu-label">
+            Getting Started
+          </p>
+          <ul class="menu-list">
+            <li>
+              <a href="#installation">Installation</a>
+            </li>
+            <li>
+              <a href="#basic-usage">Basic Usage</a>
+            </li>
+          </ul>
+          <p class="menu-label">
+            API
+          </p>
+          <ul class="menu-list">
+            <li>
+              <a>_.chunk</a>
+            </li>
+            <li>
+              <a>_.compact</a>
+            </li>
+            <li>
+              <a>_.concat</a>
+            </li>
+            <li>
+              <a>_.difference</a>
+            </li>
+            <li>
+              <a>_.differenceBy</a>
+            </li>
+            <li>
+              <a>_.differenceWith</a>
+            </li>
+            <li>
+              <a>_.drop</a>
+            </li>
+            <li>
+              <a>_.dropRight</a>
+            </li>
+            <li>
+              <a>_.dropRightWhile</a>
+            </li>
+            <li>
+              <a>_.dropWhile</a>
+            </li>
+            <li>
+              <a>_.fill</a>
+            </li>
+          </ul>
+        </aside>
+      </div>
+
+      <!-- Main content -->
+      <div class="column is-four-fifths independent-scroll">
+        <section id="installation">
+          <h1 class="title mt-5">Getting Started</h1>
+
+          <p>
+            <div class="codeblock-inline-small">array-helper</div> is available through npm and is easy to install and start using. Simply install 
+            using npm.
+          </p>
+
+          <code class="language-shell codeblock-inline">
+npm install --save array-helper
+          </code>
+
+          <p>You can also clone from source if you wish.</p>
+
+          <code class="language-shell codeblock-inline">
+git clone [url here later] && mv array-helper [destination]
+          </code>
+
+          <p>You can then <span class="codeblock-inline-small">require</span> the module from <span class="codeblock-inline-small">index.js</span> in the project root.</p>
+        </section>
+      
+
+        <section id="basic-usage">
+          <h1 class="title mt-5">Basic Usage</h1>
+
+          <p>Destructure only needed functions:</p>
+
+          <pre>
+            <code class="language-javascript codeblock-large">
+const { chunk } = require("array-helper")
+
+chunk([1, 2, 3, 4, 5, 6, 7, 8], 3)
+
+// [[1, 2, 3], [4, 5, 6], [7, 8]]
+
+           </code>
+          </pre>
+
+          <p>Or <span class="codeblock-inline-small">require</span>the entire module.</p>
+
+          <pre>
+            <code class="language-javascript codeblock-large">
+const _ = require("array-helper")
+
+_.dropRight(["a", "b", "c"], 2)
+
+// ["a"] 
+
+           </code>
+          </pre>
+        </section>
+      </div>
+    </div>
+    <script src="assets/js/prism.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="assets/js/scroll.js" type="text/javascript"></script>
+  </body>
+</html>
