@@ -4,7 +4,7 @@ $('a[href^="#"]').on("click", function(e) {
   const targetEle = this.hash
   const $targetEle = $(targetEle)
 
-  $("div.column.is-four-fifths.independent-scroll").stop().animate(
+  $("div.column.independent-scroll").stop().animate(
     {
       scrollTop: $targetEle.offset().top,
     },
