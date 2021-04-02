@@ -1,10 +1,5 @@
 /* Custom styles */
 
-html,
-body {
-  overflow: hidden;
-}
-
 body {
   height: 100% !important;
 }
@@ -81,7 +76,32 @@ section::before {
   width: auto !important;
 }
 
-/* Applies to each section meant to scroll independently */
-.independent-scroll {
-  overflow: auto;
+/* -------------------------------- Media queries -------------------------------- */
+
+@media (max-width: 935px) {
+  .side-menu {
+    display: none;
+  }
+}
+
+@media (min-width: 935px) {
+  /* Applies to each section meant to scroll independently */
+  .independent-scroll {
+    overflow: auto;
+  }
+
+  html,
+  body {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 934px) {
+  .independent-scroll {
+    overflow: scroll;
+  }
+
+  .column {
+    padding: 25px;
+  }
 }
