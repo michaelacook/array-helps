@@ -82,7 +82,7 @@ section::before {
   width: auto !important;
 }
 
-a:hover {
+.menu a:hover {
   background-color: #63D2B2 !important;
   color: white !important;
 }
