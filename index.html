@@ -23,10 +23,18 @@
     </nav>
 
     <!-- Main content -->
-    <div class="columns full-height main">
+    <div class="columns full-height">
       <!-- Side navigation -->
       <div class="column is-one-fifth has-background-light independent-scroll side-menu">
         <aside class="menu ml-5 mt-4">
+          <p class="menu-label">
+            Overview
+          </p>
+          <ul class="menu-list">
+            <li>
+              <a href="#overview">About</a>
+            </li>
+          </ul>
           <p class="menu-label">
             Getting Started
           </p>
@@ -239,7 +247,26 @@
       </div>
 
       <!-- Main content -->
-      <div class="column independent-scroll">
+      <div class="column independent-scroll p-4">
+
+        <section id="overview">
+          <h1 class="title mt-5">Overview</h1>
+
+          <p>
+            <span class="codeblock-inline-small">array-helps</span> abstracts away the lower level tedium of working with arrays. Whether you want to easily paginate data on the client side 
+            or sort collections of data with ease, <span class="codeblock-inline-small">array-helps</span> will mean writing less code to do it.
+          </p>
+
+          <br>
+
+          <p>
+            The purpose of this project was to clone the popular <a href="https://lodash.com/">Lodash</a> library's <span class="codeblock-inline-small">Array</span> methods and replace much of it's complex code with ES6 
+            features instead. However, many of the <span class="codeblock-inline-small">array-helps</span> methods currently have poor time complexity and should not be used on large data sets. <span class="codeblock-inline-small">array-helps</span> is 
+            best suited to small front-end projects and dynamic sites that do not handle large amounts of data.
+          </p>
+        </section>
+
+
         <section id="installation">
           <h1 class="title mt-5">Getting Started</h1>
 
@@ -293,8 +320,10 @@ _.dropRight(["a", "b", "c"], 2)
         </section>
 
         <!-- API section -->
-        <section>
+        <section style="margin-bottom: 50px;">
           <h1 class="title mt-5">API</h1>
+          
+          <p></p>
         </section>
       </div>
     </div>

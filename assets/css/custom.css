@@ -4,6 +4,10 @@ a {
   border-radius: 4px !important;
 }
 
+/* body {
+  margin-bottom: 100px !important;
+} */
+
 pre {
   padding: 0 1em !important;
   border-radius: 4px !important;
@@ -22,6 +26,10 @@ section::before {
 .full-height {
   height: 100vh;
 }
+
+/* .columns .full-height {
+  margin-bottom: 100px !important;
+} */
 
 .shadow-small {
   -webkit-box-shadow: 3px 3px 5px 1px #ccc;
