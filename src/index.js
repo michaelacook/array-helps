@@ -227,6 +227,29 @@ const _ = {
     }
     return copy
   },
+
+  /**
+   * Return the index of the first element of a given array that predicate turns truthy for
+   * @param {Object|Array} arr
+   * @param {Function} predicate - used to evaluate each item in arr
+   * @param {Number} start - starting index. Defaults to 0
+   * @returns {Number} index
+   */
+  findIndex(arr, predicate, start = 0) {
+    if (arr === undefined) {
+      throw MissingRequiredArgumentError
+    }
+    if (!Array.isArray(arr)) {
+      throw InvalidArgumentError
+    }
+    for (let i = start; i < arr.length; i++) {
+      const el = arr[i]
+      if (predicate(el)) {
+        return i
+      }
+    }
+    return -1
+  },
 }
 
 module.exports = _
