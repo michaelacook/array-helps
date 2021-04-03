@@ -1,13 +1,7 @@
 /* Custom styles */
 
 a {
-  /* display: inline-block !important; */
   border-radius: 4px !important;
-  /* width: auto !important; */
-}
-
-body {
-  height: 100% !important;
 }
 
 pre {
@@ -23,10 +17,6 @@ section::before {
   height: 285px !important;
   visibility: hidden !important;
   pointer-events: none !important;
-}
-
-.main {
-  padding-bottom: 50px !important;
 }
 
 .full-height {
