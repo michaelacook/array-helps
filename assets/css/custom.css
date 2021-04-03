@@ -116,3 +116,27 @@ section::before {
     padding: 25px;
   }
 }
+
+
+/* -------------------------------- Scrollbar -------------------------------- */
+
+.column::-webkit-scrollbar {
+	width: 9px;
+}
+
+.column::-webkit-scrollbar-thumb {
+	border-radius: 20px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
+body::-webkit-scrollbar {
+	width: 9px;
+}
+
+body::-webkit-scrollbar-thumb {
+	border-radius: 20px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
