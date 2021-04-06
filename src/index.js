@@ -250,6 +250,30 @@ const _ = {
     }
     return -1
   },
+
+  /**
+   * Find the last index in an array that a callback returns truthy for
+   * Like findIndex but iterates from right to left
+   * @param {Object|Array}} arr
+   * @param {Function} predicate - used to evaluate each item in arr
+   * @param {Number} start - starting index. Defaults to last index in arr
+   * @returns {Number}
+   */
+  findLastIndex(arr, predicate, start = arr.length - 1) {
+    if (arr === undefined) {
+      throw MissingRequiredArgumentError
+    }
+    if (!Array.isArray(arr)) {
+      throw InvalidArgumentError
+    }
+    for (let i = start; i > -1; i--) {
+      const el = arr[i]
+      if (predicate(el)) {
+        return i
+      }
+    }
+    return -1
+  },
 }
 
 module.exports = _
