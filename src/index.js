@@ -274,6 +274,22 @@ const _ = {
     }
     return -1
   },
+
+  /**
+   * Returns the first element of an array
+   * Will return undefined when passed an empty array
+   * @param {Object|Array} arr
+   * @returns {any}
+   */
+  head(arr) {
+    if (arr === undefined) {
+      throw MissingRequiredArgumentError
+    }
+    if (!Array.isArray(arr)) {
+      throw InvalidArgumentError
+    }
+    return arr[0]
+  },
 }
 
 module.exports = _
