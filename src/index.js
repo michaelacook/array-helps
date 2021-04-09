@@ -303,16 +303,9 @@ const _ = {
     if (!Array.isArray(arr)) {
       throw InvalidArgumentError
     }
-    const output = []
-    while (arr.length) {
-      const el = arr.shift()
-      if (Array.isArray(el)) {
-        output.push(...el)
-      } else {
-        output.push(el)
-      }
-    }
-    return output
+    return arr.reduce((acc, curr) => {
+      return acc.concat(curr)
+    }, [])
   },
 }
 
