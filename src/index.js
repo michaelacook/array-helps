@@ -290,6 +290,30 @@ const _ = {
     }
     return arr[0]
   },
+
+  /**
+   * Flatten a multi-dimensional array by a single level
+   * @param {Object|Array} arr - input array to be flattened
+   * @returns {Object|Array}
+   */
+  flatten(arr) {
+    if (arr === undefined) {
+      throw MissingRequiredArgumentError
+    }
+    if (!Array.isArray(arr)) {
+      throw InvalidArgumentError
+    }
+    const output = []
+    while (arr.length) {
+      const el = arr.shift()
+      if (Array.isArray(el)) {
+        output.push(...el)
+      } else {
+        output.push(el)
+      }
+    }
+    return output
+  },
 }
 
 module.exports = _

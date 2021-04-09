@@ -4,7 +4,6 @@ const {
   InvalidArgumentError,
   MissingRequiredArgumentError,
 } = require("../../src/error.js")
-const { findLastIndex } = require("../../src/index.js")
 
 module.exports = () => {
   describe(".head", () => {
