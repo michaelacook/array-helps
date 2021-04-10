@@ -25,6 +25,13 @@ module.exports = () => {
       assert.deepEqual(actual, expected)
     })
 
+    it("flattens a deeply nested array of empty arrays to a single empty array", () => {
+      const input = [[[[[[]]]]]]
+      const expected = []
+      const actual = _.flattenDeep(input, 6)
+      assert.deepEqual(actual, expected)
+    })
+
     it("returns an array flattened to a single dimension when n is greater than the depth of the array", () => {
       const input = [[["a", ["b", ["c"]]], "d"]]
       const expected = ["a", "b", "c", "d"]
