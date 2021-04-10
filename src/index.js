@@ -343,6 +343,23 @@ const _ = {
     }
     return arr
   },
+
+  /**
+   * Convert a list of values composed of an array of arrays to an object
+   * JavaScript natively provides this capability with Object.entries
+   * So this method is a simple wrapper for that native capability
+   * @param {Object|Array} arr
+   * @returns {Object}
+   */
+  fromPairs(arr) {
+    if (arr === undefined) {
+      throw MissingRequiredArgumentError
+    }
+    if (!Array.isArray(arr)) {
+      throw InvalidArgumentError
+    }
+    return Object.fromEntries(arr)
+  },
 }
 
 module.exports = _
