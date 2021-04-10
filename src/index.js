@@ -309,6 +309,9 @@ const _ = {
   /**
    * Flattens a multi-dimensional array to a single dimension
    * Flattens any level of nesting
+   * JavaScript natively provides a very concise way to achieve
+   * Using Array.prototype.flat passing the bigint Infinity
+   * This method is a simple wrapper for JavaScript's native way to do this
    * @param {Object|Array} arr
    * @returns {Object|Array}
    */
