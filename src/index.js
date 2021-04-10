@@ -305,6 +305,22 @@ const _ = {
     }
     return arr.reduce((acc, curr) => acc.concat(curr), [])
   },
+
+  /**
+   * Flattens a multi-dimensional array to a single dimension
+   * Flattens any level of nesting
+   * @param {Object|Array} arr
+   * @returns {Object|Array}
+   */
+  flattenDeep(arr) {
+    if (arr === undefined) {
+      throw MissingRequiredArgumentError
+    }
+    if (!Array.isArray(arr)) {
+      throw InvalidArgumentError
+    }
+    return arr.flat(Infinity)
+  },
 }
 
 module.exports = _
