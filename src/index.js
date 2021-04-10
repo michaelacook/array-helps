@@ -327,12 +327,11 @@ const _ = {
 
   /**
    * Recursively flatten an array n levels deep
-   * This method is not part of Lodash, but I want to challenge myself to add it
    * @param {Object|Array} arr
    * @param {Number} n - number of levels of depth to flatten. Defaults to 1
    * @returns {Object|Array}
    */
-  flattenNDeep(arr, n = 1) {
+  flattenDepth(arr, n = 1) {
     if (arr === undefined) {
       throw MissingRequiredArgumentError
     }
@@ -340,7 +339,7 @@ const _ = {
       throw InvalidArgumentError
     }
     while (n > 0) {
-      return this.flattenNDeep(this.flatten(arr), n - 1)
+      return this.flattenDepth(this.flatten(arr), n - 1)
     }
     return arr
   },
