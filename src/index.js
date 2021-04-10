@@ -340,10 +340,7 @@ const _ = {
       throw InvalidArgumentError
     }
     while (n > 0) {
-      return this.flattenNDeep(
-        arr.reduce((acc, curr) => acc.concat(curr), []),
-        n - 1
-      )
+      return this.flattenNDeep(this.flatten(arr), n - 1)
     }
     return arr
   },
