@@ -1,5 +1,5 @@
 const { assert } = require("chai")
-const { flattenDeep, flatten } = require("../../src/index.js")
+const { flattenDeep } = require("../../src/index.js")
 const {
   InvalidArgumentError,
   MissingRequiredArgumentError,
