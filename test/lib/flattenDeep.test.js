@@ -18,6 +18,13 @@ module.exports = () => {
       assert.deepEqual(actual, expected)
     })
 
+    it("flattens a deeply nested array of empty arrays to a single empty array", () => {
+      const input = [[[[[[]]]]]]
+      const expected = []
+      const actual = flattenDeep(input)
+      assert.deepEqual(actual, expected)
+    })
+
     it("returns an empty array when passed an empty array", () => {
       assert.isOk(!flattenDeep([]).length)
     })
