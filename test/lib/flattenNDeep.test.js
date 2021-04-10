@@ -28,7 +28,7 @@ module.exports = () => {
     it("flattens a deeply nested array of empty arrays to a single empty array", () => {
       const input = [[[[[[]]]]]]
       const expected = []
-      const actual = _.flattenDeep(input, 6)
+      const actual = _.flattenNDeep(input, 6)
       assert.deepEqual(actual, expected)
     })
 
