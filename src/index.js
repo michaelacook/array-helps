@@ -370,6 +370,12 @@ const _ = {
    * @returns {Number} index on success, otherwise -1
    */
   indexOf(arr, value, start = 0) {
+    if (arr === undefined) {
+      throw MissingRequiredArgumentError
+    }
+    if (!Array.isArray(arr) || !Number.isInteger(start)) {
+      throw InvalidArgumentError
+    }
     if (start < 0) {
       start = arr.length + start
     }

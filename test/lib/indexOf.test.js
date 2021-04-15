@@ -44,5 +44,23 @@ module.exports = () => {
       const actual = _.indexOf(input, 4, -3)
       assert.deepEqual(actual, expected)
     })
+
+    it("throws a TypeError if arr is a non-array type", () => {
+      assert.throw(() => {
+        _.indexOf("", true)
+      }, InvalidArgumentError.message)
+    })
+
+    it("throws a TypeError if start is a non-number type", () => {
+      assert.throw(() => {
+        _.indexOf([], true, "")
+      }, InvalidArgumentError.message)
+    })
+
+    it("throws a SyntaxError if arr is undefined", () => {
+      assert.throw(() => {
+        _.indexOf(undefined, true)
+      }, MissingRequiredArgumentError.message)
+    })
   })
 }
