@@ -386,6 +386,34 @@ const _ = {
     }
     return -1
   },
+
+  /**
+   * Returns a new array with all but the last element of arr
+   * Safe for nested arrays as it creates a deep clone of the original
+   * @param {Object|Array} arr
+   * @returns {Object|Array}
+   */
+  initial(arr) {
+    if (arr === undefined) {
+      throw MissingRequiredArgumentError
+    }
+    if (!Array.isArray(arr)) {
+      throw InvalidArgumentError
+    }
+    const copy = this._deepCloneArray(arr)
+    copy.pop()
+    return copy
+  },
+
+  /**
+   * Private
+   * Utility method for array deep clone
+   * @param {Object|Array} arr
+   * @returns {Object|Array} deep clone
+   */
+  _deepCloneArray(arr) {
+    return JSON.parse(JSON.stringify(arr))
+  },
 }
 
 module.exports = _
