@@ -360,6 +360,26 @@ const _ = {
     }
     return Object.fromEntries(arr)
   },
+
+  /**
+   * Find the index for the first occurrence of an element in an array
+   * If start is negative, it is used as an offset from the end of the array
+   * @param {Object|Array} arr
+   * @param {Any} value
+   * @param {Number} start - index from which to start iterating. Defaults to 0
+   * @returns {Number} index on success, otherwise -1
+   */
+  indexOf(arr, value, start = 0) {
+    if (start < 0) {
+      start = arr.length + start
+    }
+    for (let i = start; i < arr.length; i++) {
+      if (value === arr[i]) {
+        return i
+      }
+    }
+    return -1
+  },
 }
 
 module.exports = _
