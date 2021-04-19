@@ -406,6 +406,37 @@ const _ = {
   },
 
   /**
+   * Get the intersection of two or more arrays
+   * The intersection of two or more arrays is the array that results
+   * from all their comment elements
+   * @param {Object|Array} arr
+   * @param  {...any} arrays
+   * @returns {Object|Array}
+   */
+  intersection(arr, ...arrays) {
+    if (arr === undefined) {
+      throw MissingRequiredArgumentError
+    }
+    if (!Array.isArray(arr)) {
+      throw InvalidArgumentError
+    }
+    return !arr.length
+      ? []
+      : arr.filter((el) => {
+          let intersects = true
+          for (let array of arrays) {
+            if (Array.isArray(array)) {
+              if (!array.includes(el)) {
+                intersects = false
+                break
+              }
+            }
+          }
+          return intersects
+        })
+  },
+
+  /**
    * Private
    * Utility method for array deep clone
    * @param {Object|Array} arr
