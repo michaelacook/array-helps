@@ -420,20 +420,18 @@ const _ = {
     if (!Array.isArray(arr)) {
       throw InvalidArgumentError
     }
-    return !arr.length
-      ? []
-      : arr.filter((el) => {
-          let intersects = true
-          for (let array of arrays) {
-            if (Array.isArray(array)) {
-              if (!array.includes(el)) {
-                intersects = false
-                break
-              }
-            }
+    return arr.filter((el) => {
+      let intersects = true
+      for (let array of arrays) {
+        if (Array.isArray(array)) {
+          if (!array.includes(el)) {
+            intersects = false
+            break
           }
-          return intersects
-        })
+        }
+      }
+      return intersects
+    })
   },
 
   intersectionBy(arr, iteratee, ...arrays) {
