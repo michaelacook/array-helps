@@ -434,6 +434,14 @@ const _ = {
     })
   },
 
+  /**
+   * Get the intersection of two or more arrays as compared by an iteratee 
+   * like intersection but each element in each array is compared with criteria set by iteratee
+   * @param {Object|Array} arr 
+   * @param {Function} iteratee - function to compare elements in each array. Accepts a single argument
+   * @param  {...any} arrays 
+   * @returns {Object|Array}
+   */
   intersectionBy(arr, iteratee, ...arrays) {
     if (arr === undefined) {
       throw MissingRequiredArgumentError
