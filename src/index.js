@@ -436,6 +436,33 @@ const _ = {
         })
   },
 
+  intersectionBy(arr, iteratee, ...arrays) {
+    if (arr === undefined) {
+      throw MissingRequiredArgumentError
+    }
+    if (!Array.isArray(arr)) {
+      throw InvalidArgumentError
+    }
+    if (iteratee === undefined) {
+      return this.intersection(arr, arrays)
+    }
+    if (typeof iteratee !== "function") {
+      throw InvalidArgumentError
+    }
+    return arr.filter((el) => {
+      let intersects = true
+      for (let array of arrays) {
+        if (Array.isArray(array)) {
+          if (!array.map(iteratee).includes(iteratee(el))) {
+            intersects = false
+            break
+          }
+        }
+      }
+      return intersects
+    })
+  },
+
   /**
    * Private
    * Utility method for array deep clone
