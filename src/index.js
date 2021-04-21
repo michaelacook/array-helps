@@ -400,7 +400,7 @@ const _ = {
     if (!Array.isArray(arr)) {
       throw InvalidArgumentError
     }
-    const copy = this._deepCloneArray(arr)
+    const copy = this._deepClone(arr)
     copy.pop()
     return copy
   },
@@ -435,11 +435,11 @@ const _ = {
   },
 
   /**
-   * Get the intersection of two or more arrays as compared by an iteratee 
+   * Get the intersection of two or more arrays as compared by an iteratee
    * like intersection but each element in each array is compared with criteria set by iteratee
-   * @param {Object|Array} arr 
+   * @param {Object|Array} arr
    * @param {Function} iteratee - function to compare elements in each array. Accepts a single argument
-   * @param  {...any} arrays 
+   * @param  {...any} arrays
    * @returns {Object|Array}
    */
   intersectionBy(arr, iteratee, ...arrays) {
@@ -470,13 +470,13 @@ const _ = {
   },
 
   /**
-   * Private
-   * Utility method for array deep clone
-   * @param {Object|Array} arr
-   * @returns {Object|Array} deep clone
+   * Private method
+   * Utility method to deep clone objects and arrays
+   * @param {Object} obj - object or array
+   * @returns {Object} deep clone
    */
-  _deepCloneArray(arr) {
-    return JSON.parse(JSON.stringify(arr))
+  _deepClone(obj) {
+    return JSON.parse(JSON.stringify(obj))
   },
 }
 
