@@ -4,7 +4,7 @@
   "description": "A clone of the popular Lodash library's array methods.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test/index.test.js",
+    "test": "nyc ./node_modules/.bin/_mocha 'test/**/*.test.ts'",
     "pretty": "prettier --write --no-semi ."
   },
   "keywords": [
@@ -15,9 +15,14 @@
   "author": "Michael A. Cook",
   "license": "MIT",
   "devDependencies": {
+    "@testdeck/mocha": "^0.1.2",
+    "@types/mocha": "^8.2.2",
     "chai": "^4.3.4",
-    "mocha": "^8.3.2",
-    "prettier": "^2.2.1"
+    "mocha": "^8.4.0",
+    "nyc": "^15.1.0",
+    "prettier": "^2.2.1",
+    "ts-mockito": "^2.6.1",
+    "ts-node": "^10.0.0"
   },
   "dependencies": {
     "typescript": "^4.2.4"
