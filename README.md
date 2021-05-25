@@ -1,6 +1,6 @@
 # Array Helper
 
-A clone of the popular [Lodash](https://lodash.com/) library's array methods.
+A clone of the popular [Lodash](https://lodash.com/) library's array methods written in TypeScript.
 
 I decided to write this project for a few reasons. First, I wanted to start getting familiar with unit testing using Mocha and Chai. Second, I wanted to challenge myself to complete a bunch of coding challenges, and this seemed like a great way to do it! Third, I wanted to get more familiar with Lodash.
 
