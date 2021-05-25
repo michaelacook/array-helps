@@ -4,7 +4,7 @@
   "description": "A clone of the popular Lodash library's array methods.",
   "main": "index.js",
   "scripts": {
-    "test": "nyc ./node_modules/.bin/_mocha 'test/**/*.test.ts'",
+    "test": "clear && nyc ./node_modules/.bin/_mocha 'test/**/*.test.ts'",
     "pretty": "prettier --write --no-semi ."
   },
   "keywords": [
