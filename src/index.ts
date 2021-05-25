@@ -68,7 +68,7 @@ export const _ = {
    * @param  {...any} arrays
    * @returns {Object|Array}
    */
-  differenceBy(arr, iteratee, ...arrays: [][]) {
+  differenceBy(arr, iteratee, ...arrays: any[][]) {
     if (!arr.length) {
       return arr
     }
@@ -88,7 +88,7 @@ export const _ = {
    * @param  {...any} arrays
    * @returns {Object|Array}
    */
-  differenceWith(arr: any[], comparator, ...arrays: [][]) {
+  differenceWith(arr: any[], comparator, ...arrays: any[]) {
     let filtered = arrays.filter(Array.isArray).flat()
     if (!comparator) {
       return this.difference(arr, ...arrays)
@@ -122,7 +122,7 @@ export const _ = {
    * @param {Number} num
    * @returns {Object|Array}
    */
-  dropRight(arr: any[], num: number) {
+  dropRight(arr: any[], num: number = 1) {
     const sliceNum = -1 * num
     const sliced = arr.slice(sliceNum)
     return arr.filter((el) => !sliced.includes(el))
@@ -302,12 +302,12 @@ export const _ = {
   /**
    * Get the intersection of two or more arrays
    * The intersection of two or more arrays is the array that results
-   * from all their comment elements
+   * from all their common elements
    * @param {Object|Array} arr
    * @param  {...any} arrays
    * @returns {Object|Array}
    */
-  intersection(arr: any[], ...arrays: any[][]) {
+  intersection(arr: any[], ...arrays: any[]) {
     return arr.filter((el) => {
       let intersects = true
       for (let array of arrays) {
@@ -330,19 +330,21 @@ export const _ = {
    * @param  {...any} arrays
    * @returns {Object|Array}
    */
-  intersectionBy(arr: any[], iteratee, ...arrays: any[][]) {
-    return arr.filter((el) => {
-      let intersects = true
-      for (let array of arrays) {
-        if (Array.isArray(array)) {
-          if (!array.map(iteratee).includes(iteratee(el))) {
-            intersects = false
-            break
+  intersectionBy(arr: any[], iteratee?: any, ...arrays: any[]) {
+    return iteratee
+      ? arr.filter((el) => {
+          let intersects = true
+          for (let array of arrays) {
+            if (Array.isArray(array)) {
+              if (!array.map(iteratee).includes(iteratee(el))) {
+                intersects = false
+                break
+              }
+            }
           }
-        }
-      }
-      return intersects
-    })
+          return intersects
+        })
+      : this.intersection(arr, arrays)
   },
 
   /**
