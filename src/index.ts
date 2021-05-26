@@ -1,5 +1,4 @@
-import { Callback } from "./types/callback"
-import { Comparator } from "./types/comparator"
+import { Callback, Comparator } from "./types"
 
 export const _ = {
   /**
