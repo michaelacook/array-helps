@@ -1,3 +1,5 @@
+import { Callback } from "./types/callback"
+
 export const _ = {
   /**
    * Take an array and divide into a 2D array of chunks of the specified size
@@ -68,7 +70,7 @@ export const _ = {
    * @param  {...any} arrays
    * @returns {Object|Array}
    */
-  differenceBy(arr, iteratee, ...arrays: any[][]) {
+  differenceBy(arr, iteratee: Callback, ...arrays: any[][]) {
     if (!arr.length) {
       return arr
     }
@@ -135,7 +137,7 @@ export const _ = {
    * @param {Function} predicate - takes current element of array and returns a truthy or falsey value
    * @returns {Object|Array}
    */
-  dropRightWhile(arr: any[], predicate) {
+  dropRightWhile(arr: any[], predicate: Callback) {
     const copy = [...arr]
     while (predicate(copy[copy.length - 1])) {
       copy.pop()
@@ -150,7 +152,7 @@ export const _ = {
    * @param {Function} predicate - takes current element of array and returns a truthy or falsey value
    * @returns {Object|Array}
    */
-  dropWhile(arr: any[], predicate) {
+  dropWhile(arr: any[], predicate: Callback) {
     const copy = [...arr]
     while (predicate(copy[0])) {
       copy.shift()
@@ -183,7 +185,7 @@ export const _ = {
    * @param {Number} start - starting index. Defaults to 0
    * @returns {Number} index
    */
-  findIndex(arr: any[], predicate, start: number = 0) {
+  findIndex(arr: any[], predicate: Callback, start: number = 0) {
     for (let i = start; i < arr.length; i++) {
       const el = arr[i]
       if (predicate(el)) {
@@ -330,7 +332,7 @@ export const _ = {
    * @param  {...any} arrays
    * @returns {Object|Array}
    */
-  intersectionBy(arr: any[], iteratee?: any, ...arrays: any[]) {
+  intersectionBy(arr: any[], iteratee: Callback, ...arrays: any[]) {
     return iteratee
       ? arr.filter((el) => {
           let intersects = true
