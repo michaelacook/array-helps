@@ -307,7 +307,7 @@ export const _ = {
    * @param  {...any} arrays
    * @returns {Object|Array}
    */
-  intersection(arr: any[], ...arrays: any[]) {
+  intersection(arr: any[], ...arrays: any[][]) {
     return arr.filter((el) => {
       let intersects = true
       for (let array of arrays) {
