@@ -275,7 +275,7 @@ export const _ = {
    * @param {Number} start - index from which to start iterating. Defaults to 0
    * @returns {Number} index on success, otherwise -1
    */
-  indexOf(arr: any[], value, start: number = 0) {
+  indexOf(arr: any[], value, start: number = 0): number {
     if (start < 0) {
       start = arr.length + start
     }
