@@ -88,7 +88,7 @@ export const _ = {
    * @param  {...any} arrays
    * @returns {Object|Array}
    */
-  differenceWith(arr: any[], comparator, ...arrays: any[]) {
+  differenceWith(arr: any[], comparator, ...arrays: any[][]) {
     let filtered = arrays.filter(Array.isArray).flat()
     if (!comparator) {
       return this.difference(arr, ...arrays)
