@@ -1,4 +1,5 @@
 import { Callback } from "./types/callback"
+import { Comparator } from "./types/comparator"
 
 export const _ = {
   /**
@@ -90,7 +91,7 @@ export const _ = {
    * @param  {...any} arrays
    * @returns {Object|Array}
    */
-  differenceWith(arr: any[], comparator, ...arrays: any[][]) {
+  differenceWith(arr: any[], comparator: Comparator, ...arrays: any[][]) {
     let filtered = arrays.filter(Array.isArray).flat()
     if (!comparator) {
       return this.difference(arr, ...arrays)
